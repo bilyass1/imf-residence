@@ -8,6 +8,16 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Gold accent bar above major section titles */
+  h2.section-title::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #C9A64D;
+    margin-bottom: 1rem;
+  }
 }
 
 @layer utilities {
@@ -21,5 +31,14 @@
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Gold border shimmer effect */
+  .gold-border {
+    border-color: #C9A64D;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #C9A64D 0%, #8A6D2F 100%);
   }
 }

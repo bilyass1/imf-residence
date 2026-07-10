@@ -4,7 +4,7 @@ import content from "@/data/content.json";
 
 export default function Footer() {
   return (
-    <footer className="bg-surface py-16 border-t border-accent/20">
+    <footer className="bg-surface py-16 border-t border-accent/30">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
@@ -24,17 +24,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="uppercase tracking-widest text-accent mb-6 font-semibold text-sm">Contact</h4>
+            <h4 className="uppercase tracking-widest text-accent mb-6 font-semibold text-xs">Contact</h4>
             <ul className="space-y-3 text-muted">
-              <li className="flex items-center gap-2">📍 {content.contact.address}</li>
-              <li className="flex items-center gap-2">📲 {content.contact.phone}</li>
-              <li className="flex items-center gap-2">📧 {content.contact.email}</li>
-              <li className="flex items-center gap-2">🌐 {content.contact.website}</li>
+              <li>{content.contact.address}</li>
+              <li>{content.contact.phone}</li>
+              <li>{content.contact.email}</li>
+              <li>{content.contact.website}</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="uppercase tracking-widest text-accent mb-6 font-semibold text-sm">Suivez-nous</h4>
+            <h4 className="uppercase tracking-widest text-accent mb-6 font-semibold text-xs">Suivez-nous</h4>
             <div className="flex space-x-4">
               <a href="#" className="text-muted hover:text-accent transition-colors uppercase text-sm tracking-wider">
                 Instagram
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-accent/20 flex flex-col md:flex-row items-center justify-between text-sm text-muted">
+        <div className="mt-16 pt-8 border-t border-accent/10 flex flex-col md:flex-row items-center justify-between text-sm text-muted">
           <p>&copy; {new Date().getFullYear()} IMF Tunisie. Tous droits réservés.</p>
           <div className="space-x-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-accent transition-colors">Mentions légales</Link>

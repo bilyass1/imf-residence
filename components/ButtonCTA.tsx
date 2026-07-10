@@ -11,9 +11,10 @@ interface ButtonCTAProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  variant?: "primary" | "outline";
 }
 
-export default function ButtonCTA({ children, href, className, ...props }: ButtonCTAProps) {
+export default function ButtonCTA({ children, href, className, variant = "primary", ...props }: ButtonCTAProps) {
   const ref = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -33,12 +34,16 @@ export default function ButtonCTA({ children, href, className, ...props }: Butto
   const content = (
     <>
       <span className="relative z-10">{children}</span>
-      <div className="absolute inset-0 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out z-0"></div>
+      {/* Gold fill sweep on hover */}
+      <div className="absolute inset-0 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out z-0" />
     </>
   );
 
   const combinedClasses = cn(
-    "relative overflow-hidden inline-flex items-center justify-center px-8 py-4 border border-accent text-accent uppercase tracking-widest text-sm font-medium group transition-colors hover:text-background",
+    "relative overflow-hidden inline-flex items-center justify-center px-8 py-4 uppercase tracking-widest text-sm font-medium group transition-colors duration-300",
+    variant === "primary"
+      ? "border border-accent text-accent hover:text-background"
+      : "border border-accent/40 text-foreground/70 hover:text-background hover:border-accent",
     className
   );
 

@@ -20,7 +20,7 @@ export default function ApartmentCard({ apartment }: ApartmentCardProps) {
   const isAvailable = apartment.status === "available";
 
   return (
-    <div className="group relative block w-full overflow-hidden bg-surface border border-accent/10 hover:border-accent/30 transition-all duration-500">
+    <div className="group relative block w-full overflow-hidden bg-surface border border-accent/10 hover:border-accent/40 transition-all duration-500">
       <div className="relative h-[300px] w-full overflow-hidden bg-background">
 
         {/* Real apartment image */}
@@ -64,9 +64,9 @@ export default function ApartmentCard({ apartment }: ApartmentCardProps) {
           
           <Link 
             href={`/appartements/${apartment.slug}`}
-            className="flex items-center gap-2 text-accent text-sm uppercase tracking-widest hover:gap-4 transition-all"
+            className="flex items-center gap-2 text-accent text-sm uppercase tracking-widest hover:gap-4 transition-all group/link"
           >
-            Voir le plan <ArrowRight size={16} />
+            <span className="border-b border-accent/0 group-hover/link:border-accent/60 transition-all duration-300">Voir le plan</span> <ArrowRight size={16} />
           </Link>
         </div>
       </div>
