@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "title": "L'Excellence Redéfinie",
+    "subtitle": "IMF Residence",
+    "description": "Découvrez un art de vivre incomparable au cœur de la ville. Une architecture audacieuse, des matériaux nobles et des espaces pensés pour votre confort absolu."
+  },
+  "about": {
+    "title": "Une Vision Contemporaine",
+    "content": "IMF Residence incarne la quintessence de l'immobilier de luxe. Chaque détail a été minutieusement pensé pour offrir une expérience de vie exceptionnelle. Des façades élégantes aux intérieurs raffinés, nous avons repoussé les limites du design résidentiel."
+  },
+  "contact": {
+    "email": "info@imf-tunisie.com.tn",
+    "phone": "54 880 083",
+    "address": "Route De Teniour Km 1, Sfax, Tunisie",
+    "website": "imf-tunisie.com.tn"
+  }
+}

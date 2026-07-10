@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A101",
+    "slug": "studio-premium-a101",
+    "title": "Studio Premium",
+    "type": "T1",
+    "surface": 45,
+    "floor": 1,
+    "price": 450000,
+    "status": "available",
+    "description": "Un espace de vie optimisé avec des finitions haut de gamme, idéal pour un pied-à-terre urbain.",
+    "features": ["Balcon", "Cuisine équipée", "Domotique"],
+    "image": "/images/apt-studio.jpg",
+    "floorPlanImage": "/plans/studio-a101.jpg",
+    "hotspots": [
+      { "id": "salon", "label": "Salon / Séjour", "x": 50, "y": 40, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg" },
+      { "id": "sdb", "label": "Salle de bain", "x": 80, "y": 20, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg" }
+    ]
+  },
+  {
+    "id": "B204",
+    "slug": "appartement-f2-b204",
+    "title": "Appartement F2 Élégance",
+    "type": "T2",
+    "surface": 65,
+    "floor": 2,
+    "price": 680000,
+    "status": "available",
+    "description": "Luminosité exceptionnelle et chambre spacieuse avec dressing sur mesure.",
+    "features": ["Terrasse", "Dressing", "Parking couvert"],
+    "image": "/images/apt-f2.jpg",
+    "floorPlanImage": "/plans/f2-b204.jpg",
+    "hotspots": [
+      { "id": "salon", "label": "Salon", "x": 40, "y": 60, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg" },
+      { "id": "chambre1", "label": "Chambre", "x": 70, "y": 30, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg" },
+      { "id": "cuisine", "label": "Cuisine", "x": 30, "y": 30, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg" }
+    ]
+  },
+  {
+    "id": "C401",
+    "slug": "duplex-signature-c401",
+    "title": "B 0-2",
+    "type": "Rez de chaussée",
+    "surface": 180.920,
+    "floor": 0,
+    "price": 1850000,
+    "status": "reserved",
+    "description": "Le summum du luxe. Ce duplex offre une vue panoramique et des prestations exceptionnelles.",
+    "features": ["Vue panoramique", "Rooftop privatif", "Suite parentale", "Cave à vin"],
+    "image": "/images/apt-duplex.jpg",
+    "floorPlanImage": "/plans/studio-a101-plan.jpg",
+    "hotspots": [
+      { "id": "salon", "label": "Salon Principal", "x": 50, "y": 70, "panoramaImage": "/panoramas/studio-a101-salon.jpg" },
+      { "id": "jardin", "label": "Jardin", "x": 80, "y": 30, "panoramaImage": "/panoramas/jardin-c401.png" }
+    ]
+  }
+]

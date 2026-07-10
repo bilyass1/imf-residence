@@ -1,101 +1,80 @@
-import Image from "next/image";
+
+import content from "@/data/content.json";
+import apartments from "@/data/apartments.json";
+import ButtonCTA from "@/components/ButtonCTA";
+import ApartmentCard from "@/components/ApartmentCard";
+import ScrollFrameSequence from "@/components/ScrollFrameSequence";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div>
+      {/* Scroll-Scrubbed Hero with Frame Sequence */}
+      <div className="relative">
+        <ScrollFrameSequence />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Hero text overlay — pinned over the first 100vh of the scroll section */}
+        <div className="absolute top-0 left-0 w-full h-screen flex items-center justify-center z-30 pointer-events-none">
+          <div className="text-center px-6 pointer-events-auto">
+            <h2 className="text-accent tracking-[0.2em] uppercase text-sm md:text-base font-semibold mb-6">
+              {content.hero.subtitle}
+            </h2>
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 max-w-5xl mx-auto leading-tight text-white drop-shadow-2xl">
+              {content.hero.title}
+            </h1>
+            <p className="text-white/70 max-w-xl mx-auto text-lg mb-12 drop-shadow-lg">
+              {content.hero.description}
+            </p>
+            <ButtonCTA href="/appartements">Découvrir les appartements</ButtonCTA>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* About Section */}
+      <section className="py-32 bg-background relative z-20">
+        <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="font-serif text-4xl md:text-5xl mb-8 leading-tight">
+              {content.about.title}
+            </h2>
+            <p className="text-muted text-lg leading-relaxed mb-8">
+              {content.about.content}
+            </p>
+            <ButtonCTA href="/residence">Explorer la résidence</ButtonCTA>
+          </div>
+          <div className="relative h-[600px] w-full border border-accent/20 p-4 group">
+            <div className="w-full h-full relative overflow-hidden bg-surface">
+              <img 
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" 
+                alt="Architecture de luxe" 
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Apartments */}
+      <section className="py-32 bg-surface">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div>
+              <h2 className="text-accent tracking-[0.2em] uppercase text-sm font-semibold mb-4">
+                Sélection
+              </h2>
+              <h3 className="font-serif text-4xl md:text-5xl">
+                Nos Typologies
+              </h3>
+            </div>
+            <ButtonCTA href="/appartements">Voir tout</ButtonCTA>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {apartments.slice(0, 3).map((apt) => (
+              <ApartmentCard key={apt.id} apartment={apt} />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

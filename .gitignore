@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Raw assets
+/*.png
+/*.jpg
+/*.jpeg
+/*.mp4
+/video1/
