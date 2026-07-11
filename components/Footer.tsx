@@ -9,14 +9,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="inline-block mb-6">
-              <Image 
-                src="/images/logo.png" 
-                alt="IMF Tunisie" 
-                width={150} 
-                height={60} 
-                className="object-contain"
-                unoptimized
-              />
+              <span className="text-3xl font-bold tracking-wider text-accent">
+                IMF
+              </span>
             </Link>
             <p className="text-muted max-w-sm mt-4">
               L&apos;excellence de l&apos;immobilier de luxe. Une adresse prestigieuse pour un art de vivre incomparable.

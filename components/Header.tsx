@@ -41,14 +41,9 @@ export default function Header() {
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="z-50 relative">
-          <Image
-            src="/images/logo.png"
-            alt="IMF Immobilière Mseddi Frères"
-            width={120}
-            height={48}
-            className="object-contain h-10 w-auto"
-            unoptimized
-          />
+          <span className="text-2xl md:text-3xl font-bold tracking-wider text-accent">
+            IMF
+          </span>
         </Link>
 
         {/* Desktop Nav */}
