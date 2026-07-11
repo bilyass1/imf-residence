@@ -33,14 +33,14 @@ export default function Header() {
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-500",
         isScrolled
-          ? "bg-surface/95 backdrop-blur-md py-4 border-b border-accent/20 shadow-[0_1px_20px_rgba(201,166,77,0.08)]"
+          ? "bg-ink-surface/85 backdrop-blur-xl py-4 border-b border-hairline/30"
           : "bg-transparent py-6"
       )}
     >
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="z-50 relative">
-          <span className="text-2xl md:text-3xl font-bold tracking-wider text-accent">
+          <span className="text-2xl md:text-3xl font-bold tracking-wider text-bronze">
             IMF
           </span>
         </Link>
@@ -55,13 +55,13 @@ export default function Header() {
                 href={link.href}
                 className={cn(
                   "text-sm uppercase tracking-widest transition-colors relative group",
-                  isActive ? "text-accent" : "text-foreground/70 hover:text-accent"
+                  isActive ? "text-bronze" : "text-ivory-muted hover:text-bronze-light"
                 )}
               >
                 {link.label}
                 <span
                   className={cn(
-                    "absolute -bottom-1 left-0 h-px bg-accent transition-all duration-300",
+                    "absolute -bottom-1 left-0 h-px bg-bronze transition-all duration-300",
                     isActive ? "w-full" : "w-0 group-hover:w-full"
                   )}
                 />
@@ -72,7 +72,7 @@ export default function Header() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden z-50 relative text-foreground"
+          className="md:hidden z-50 relative text-ivory"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Menu"
         >
@@ -87,7 +87,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-0 left-0 w-full h-screen bg-background flex flex-col items-center justify-center space-y-8 z-40"
+            className="absolute top-0 left-0 w-full h-screen bg-ink flex flex-col items-center justify-center space-y-8 z-40"
           >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -98,7 +98,7 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     "text-2xl font-serif uppercase tracking-widest transition-colors",
-                    isActive ? "text-accent" : "hover:text-accent"
+                    isActive ? "text-bronze" : "text-ivory hover:text-bronze-light"
                   )}
                 >
                   {link.label}

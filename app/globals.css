@@ -7,15 +7,20 @@
 @layer base {
   body {
     @apply bg-background text-foreground;
+    /* Subtle grain texture overlay for boutique-hotel feel */
+    background-image: 
+      radial-gradient(ellipse at center, rgba(22,21,26,0.3) 0%, rgba(11,12,14,1) 70%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+    background-attachment: fixed;
   }
 
-  /* Gold accent bar above major section titles */
+  /* Bronze accent bar above major section titles */
   h2.section-title::before {
     content: "";
     display: block;
     width: 40px;
     height: 2px;
-    background-color: #C9A64D;
+    background-color: #A9865A;
     margin-bottom: 1rem;
   }
 }
@@ -33,12 +38,17 @@
     scrollbar-width: none;
   }
 
-  /* Gold border shimmer effect */
-  .gold-border {
-    border-color: #C9A64D;
+  /* Bronze border and gradient utilities */
+  .bronze-border {
+    border-color: #A9865A;
   }
 
-  .gold-gradient {
-    background: linear-gradient(135deg, #C9A64D 0%, #8A6D2F 100%);
+  .bronze-gradient {
+    background: linear-gradient(135deg, #A9865A 0%, #7A6240 100%);
+  }
+  
+  /* Quiet luxury radial gradient for sections */
+  .section-glow {
+    background: radial-gradient(ellipse at center, rgba(22,21,26,1) 0%, rgba(11,12,14,1) 70%);
   }
 }

@@ -90,7 +90,7 @@ export default function ScrollFrameSequence() {
   const currentSrc = `/frames/residence/frame_${padFrame(frameIndex + 1)}.webp`;
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
+    <div className="relative w-full h-screen overflow-hidden bg-ink">
       {/* Loading overlay — shown until all frames are ready */}
       <div
         className={`absolute inset-0 z-40 flex flex-col items-center justify-center bg-black transition-opacity duration-1000 ${
@@ -102,23 +102,24 @@ export default function ScrollFrameSequence() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center text-white">
+        <div className="absolute inset-0 bg-ink/60 backdrop-blur-sm flex flex-col items-center justify-center text-ivory">
           <span className="uppercase tracking-[0.3em] text-sm mb-6">
             Chargement
           </span>
-          <div className="w-64 h-px bg-white/20 relative">
+          <div className="w-64 h-px bg-ivory/20 relative">
             <div
-              className="absolute top-0 left-0 h-full bg-white transition-all duration-300"
+              className="absolute top-0 left-0 h-full bg-bronze transition-all duration-300"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
-          <span className="text-xs text-white/40 mt-4 tracking-widest font-light">
+          <span className="text-xs text-ivory-muted mt-4 tracking-widest font-light">
             {progressPercent}%
           </span>
         </div>
       </div>
 
-      {/* The actual animation: a simple <img> whose src changes every rAF tick */}
+      {/* Native img intentionally used here — src changes every rAF tick for the frame animation */}
+      {/* next/image wraps the element and adds overhead incompatible with this pattern */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={currentSrc}
@@ -130,10 +131,12 @@ export default function ScrollFrameSequence() {
       {/* Gradient overlay */}
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
 
-      {/* Debug frame counter (top-right, discreet) */}
-      <div className="absolute top-3 right-4 z-50 font-mono text-[10px] text-white/30">
-        {frameIndex + 1} / {TOTAL_FRAMES}
-      </div>
+      {/* Debug frame counter — development only */}
+      {process.env.NODE_ENV === "development" && (
+        <div className="absolute top-3 right-4 z-50 font-mono text-[10px] text-white/30">
+          {frameIndex + 1} / {TOTAL_FRAMES}
+        </div>
+      )}
 
       {/* Scroll hint — appears after animation completes */}
       <div

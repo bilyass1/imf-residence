@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${playfair.variable} font-sans bg-background text-foreground antialiased selection:bg-accent selection:text-background min-h-screen flex flex-col`}
+        className={`${inter.variable} ${playfair.variable} font-sans bg-ink text-ivory antialiased selection:bg-bronze selection:text-ivory min-h-screen flex flex-col`}
       >
         <CustomCursor />
         <Header />

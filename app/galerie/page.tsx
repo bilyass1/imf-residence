@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { galleryImages, galleryCategories, type GalleryImage } from "@/data/gallery";
 
 // ── Lightbox ─────────────────────────────────────────────────────────────────
@@ -31,12 +32,12 @@ function Lightbox({
       onClick={onClose}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/95 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-ink/[0.92] backdrop-blur-xl" />
 
       {/* Close */}
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 z-10 text-white/60 hover:text-accent transition-colors"
+        className="absolute top-6 right-6 z-10 text-ivory-muted hover:text-bronze-light transition-colors"
         aria-label="Fermer"
       >
         <X size={28} />
@@ -45,7 +46,7 @@ function Lightbox({
       {/* Prev */}
       <button
         onClick={(e) => { e.stopPropagation(); onPrev(); }}
-        className="absolute left-4 z-10 text-white/50 hover:text-accent transition-colors p-2"
+        className="absolute left-4 z-10 text-ivory-muted hover:text-bronze-light transition-colors p-2"
         aria-label="Précédent"
       >
         <ChevronLeft size={40} />
@@ -61,17 +62,20 @@ function Lightbox({
         className="relative z-10 flex flex-col items-center gap-4"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={img.src}
-          alt={img.label}
-          className="max-h-[82vh] max-w-[90vw] object-contain"
-          style={{ boxShadow: "0 0 80px rgba(0,0,0,0.8)" }}
-        />
-        <p className="text-accent text-sm tracking-widest uppercase font-light">
+        <div className="relative max-h-[82vh] max-w-[90vw]" style={{ aspectRatio: `${img.width} / ${img.height}`, height: "82vh", width: "auto" }}>
+          <Image
+            src={img.src}
+            alt={img.label}
+            fill
+            className="object-contain"
+            sizes="90vw"
+            style={{ boxShadow: "0 0 80px rgba(0,0,0,0.8)" }}
+          />
+        </div>
+        <p className="text-bronze-light text-sm tracking-widest uppercase font-light">
           {img.label}
         </p>
-        <p className="text-white/30 text-xs tracking-[0.3em]">
+        <p className="text-ivory-muted text-xs tracking-[0.3em]">
           {index + 1} / {images.length}
         </p>
       </motion.div>
@@ -79,7 +83,7 @@ function Lightbox({
       {/* Next */}
       <button
         onClick={(e) => { e.stopPropagation(); onNext(); }}
-        className="absolute right-4 z-10 text-white/50 hover:text-accent transition-colors p-2"
+        className="absolute right-4 z-10 text-ivory-muted hover:text-bronze-light transition-colors p-2"
         aria-label="Suivant"
       >
         <ChevronRight size={40} />
@@ -100,7 +104,7 @@ function GalleryCard({
 }) {
   return (
     <motion.div
-      className="relative break-inside-avoid mb-4 group cursor-pointer overflow-hidden border border-transparent hover:border-accent/40 transition-colors duration-500"
+      className="relative break-inside-avoid mb-4 group cursor-pointer overflow-hidden border border-transparent hover:border-bronze/20 transition-colors duration-500"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -111,23 +115,25 @@ function GalleryCard({
       }}
       onClick={onClick}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={image.src}
         alt={image.label}
+        width={image.width}
+        height={image.height}
         className="w-full h-auto object-cover transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.08] group-hover:brightness-105 group-hover:saturate-110"
         loading="lazy"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
 
-      {/* Gold gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(201,166,77,0.15)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Bronze tint overlay on hover */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(169,134,90,0.08)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Label on hover */}
       <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-        <p className="text-xs text-accent uppercase tracking-widest font-light">
+        <p className="text-xs text-bronze-light uppercase tracking-widest font-light">
           {image.category}
         </p>
-        <p className="text-white text-sm font-light mt-1 leading-tight">
+        <p className="text-ivory text-sm font-light mt-1 leading-tight">
           {image.label}
         </p>
       </div>
@@ -156,11 +162,11 @@ function FilterTabs({
             {isActive && (
               <motion.span
                 layoutId="filter-bg"
-                className="absolute inset-0 border border-accent"
+                className="absolute inset-0 border border-bronze"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
               />
             )}
-            <span className={isActive ? "text-accent" : "text-muted hover:text-foreground"}>
+            <span className={isActive ? "text-bronze" : "text-ivory-muted hover:text-ivory"}>
               {cat}
             </span>
           </button>
@@ -190,7 +196,7 @@ export default function GaleriePage() {
   [filtered.length]);
 
   return (
-    <div className="pt-32 pb-20 min-h-screen bg-background">
+    <div className="pt-32 pb-20 min-h-screen bg-ink">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.header
@@ -199,10 +205,10 @@ export default function GaleriePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          {/* Gold accent bar */}
-          <div className="w-10 h-0.5 bg-accent mb-5" />
-          <h1 className="font-serif text-5xl md:text-6xl mb-4 text-foreground">Galerie</h1>
-          <p className="text-muted text-lg max-w-2xl">
+          {/* Bronze accent bar */}
+          <div className="w-10 h-0.5 bg-bronze mb-5" />
+          <h1 className="font-serif text-5xl md:text-6xl mb-4 text-ivory">Galerie</h1>
+          <p className="text-ivory-muted text-lg max-w-2xl">
             Découvrez chaque espace à travers notre collection d&apos;images, reflet du soin apporté à chaque détail.
           </p>
         </motion.header>

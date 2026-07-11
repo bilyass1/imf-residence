@@ -13,8 +13,8 @@
     "image": "/images/apt-studio.jpg",
     "floorPlanImage": "/plans/studio-a101.jpg",
     "hotspots": [
-      { "id": "salon", "label": "Salon / Séjour", "x": 50, "y": 40, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg" },
-      { "id": "sdb", "label": "Salle de bain", "x": 80, "y": 20, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg" }
+      { "id": "salon", "label": "Salon / Séjour", "x": 50, "y": 40, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg", "configKey": "A101-salon" },
+      { "id": "sdb",   "label": "Salle de bain",  "x": 80, "y": 20, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg", "configKey": "A101-sdb" }
     ]
   },
   {
@@ -31,9 +31,9 @@
     "image": "/images/apt-f2.jpg",
     "floorPlanImage": "/plans/f2-b204.jpg",
     "hotspots": [
-      { "id": "salon", "label": "Salon", "x": 40, "y": 60, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg" },
-      { "id": "chambre1", "label": "Chambre", "x": 70, "y": 30, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg" },
-      { "id": "cuisine", "label": "Cuisine", "x": 30, "y": 30, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg" }
+      { "id": "salon",    "label": "Salon",    "x": 40, "y": 60, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg",      "configKey": "B204-salon" },
+      { "id": "chambre1", "label": "Chambre",  "x": 70, "y": 30, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg", "configKey": "B204-chambre1" },
+      { "id": "cuisine",  "label": "Cuisine",  "x": 30, "y": 30, "panoramaImage": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg",      "configKey": "B204-cuisine" }
     ]
   },
   {
@@ -50,8 +50,8 @@
     "image": "/images/apt-duplex.jpg",
     "floorPlanImage": "/plans/studio-a101-plan.jpg",
     "hotspots": [
-      { "id": "salon", "label": "Salon Principal", "x": 50, "y": 70, "panoramaImage": "/panoramas/studio-a101-salon.jpg" },
-      { "id": "jardin", "label": "Jardin", "x": 80, "y": 30, "panoramaImage": "/panoramas/jardin-c401.png" }
+      { "id": "salon",  "label": "Salon Principal", "x": 50, "y": 70, "panoramaImage": "/panoramas/studio-a101-salon.jpg", "viewpoint": { "yaw": 0, "pitch": -0.05 }, "configKey": "C401-salon" },
+      { "id": "jardin", "label": "Jardin",           "x": 80, "y": 30, "panoramaImage": "/panoramas/jardin-c401.png",       "viewpoint": { "yaw": 0.3, "pitch": 0.1 }, "configKey": "C401-jardin" }
     ]
   }
 ]
